@@ -1,0 +1,23 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: poetry run python src/data.py
+    deps:
+    - path: data/raw/online_shoppers_intention.csv
+      hash: md5
+      md5: cc6ec1db03b4f10f8de52c56ff48b085
+      size: 1072063
+    - path: src/data.py
+      hash: md5
+      md5: 57558e60e21f088ed5b8958babe58209
+      size: 1582
+    params:
+      params.yaml:
+        data_split.random_state: 42
+        data_split.test_size: 0.2
+    outs:
+    - path: data/processed/
+      hash: md5
+      md5: 466541a4b22994127b79a99bd82909b6.dir
+      size: 1606779
+      nfiles: 2
