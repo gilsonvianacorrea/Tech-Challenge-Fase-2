@@ -20,3 +20,22 @@ stages:
       - data_split.random_state
     outs:
       - models/model.joblib
+
+  evaluate:
+    cmd: poetry run python src/evaluate.py
+    deps:
+      - models/model.joblib
+      - data/processed/test.csv
+      - src/evaluate.py
+    metrics:
+      - metrics/scores.json:
+          cache: false
+
+  plots:
+    cmd: poetry run python src/plots.py
+    deps:
+      - models/model.joblib
+      - data/processed/test.csv
+      - src/plots.py
+    outs:
+      - reports/figures/

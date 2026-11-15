@@ -64,3 +64,24 @@ stages:
       hash: md5
       md5: 2d0a405f241c0dd5532d3b5ed5799017
       size: 186
+  plots:
+    cmd: poetry run python src/plots.py
+    deps:
+    - path: data/processed/test.csv
+      hash: md5
+      md5: 805dab724d6ab7a04cb989b93b17b36b
+      size: 321636
+    - path: models/model.joblib
+      hash: md5
+      md5: d27fd7f4c3dea430252c10f2196ef905
+      size: 14044649
+    - path: src/plots.py
+      hash: md5
+      md5: 5abd718005673ebba8c94f0a4d20611c
+      size: 1674
+    outs:
+    - path: reports/figures/
+      hash: md5
+      md5: 8e09546c1d31a060388c1a637d75d03b.dir
+      size: 45603
+      nfiles: 2
