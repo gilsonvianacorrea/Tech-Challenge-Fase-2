@@ -21,3 +21,26 @@ stages:
       md5: 466541a4b22994127b79a99bd82909b6.dir
       size: 1606779
       nfiles: 2
+  train:
+    cmd: poetry run python src/train.py
+    deps:
+    - path: data/processed/test.csv
+      hash: md5
+      md5: 805dab724d6ab7a04cb989b93b17b36b
+      size: 321636
+    - path: data/processed/train.csv
+      hash: md5
+      md5: c8a8aa81dd4d26d1532cb03dcb6eca4e
+      size: 1285143
+    - path: src/train.py
+      hash: md5
+      md5: 23c303e3e9108bbc1b3cfcdbfd7e0b4a
+      size: 1313
+    params:
+      params.yaml:
+        data_split.random_state: 42
+    outs:
+    - path: models/model.joblib
+      hash: md5
+      md5: d27fd7f4c3dea430252c10f2196ef905
+      size: 14044649

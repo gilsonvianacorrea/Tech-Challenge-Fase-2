@@ -1,0 +1,22 @@
+stages:
+  preprocess:
+    cmd: poetry run python src/data.py
+    deps:
+      - data/raw/online_shoppers_intention.csv
+      - src/data.py
+    params:
+      - data_split.test_size
+      - data_split.random_state
+    outs:
+      - data/processed/
+
+  train:
+    cmd: poetry run python src/train.py
+    deps:
+      - data/processed/train.csv
+      - data/processed/test.csv
+      - src/train.py
+    params:
+      - data_split.random_state
+    outs:
+      - models/model.joblib
