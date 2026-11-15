@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "tech-challenge-fase2"
+version = "0.1.0"
+description = "Pipeline MLOps para propensão de compra em e-commerce"
+authors = ["Gilson Viana Corrêa e Marco Antônio de Souza <gilsonvianacorrea@gmail.com>"]
+readme = "README.md"
+packages = [{include = "src"}]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.15"
+scikit-learn = "^1.4.0"
+mlflow = "^2.11.0"
+dvc = "^3.14.0"
+pandas = "^2.2.0"
+numpy = "^1.26.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+ruff = "^0.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
