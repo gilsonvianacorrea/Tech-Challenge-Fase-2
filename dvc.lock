@@ -44,3 +44,23 @@ stages:
       hash: md5
       md5: d27fd7f4c3dea430252c10f2196ef905
       size: 14044649
+  evaluate:
+    cmd: poetry run python src/evaluate.py
+    deps:
+    - path: data/processed/test.csv
+      hash: md5
+      md5: 805dab724d6ab7a04cb989b93b17b36b
+      size: 321636
+    - path: models/model.joblib
+      hash: md5
+      md5: d27fd7f4c3dea430252c10f2196ef905
+      size: 14044649
+    - path: src/evaluate.py
+      hash: md5
+      md5: ea24182507d4b7e8b68a5570121b9ce3
+      size: 1383
+    outs:
+    - path: metrics/scores.json
+      hash: md5
+      md5: 2d0a405f241c0dd5532d3b5ed5799017
+      size: 186
